@@ -1,0 +1,305 @@
+        /* تنسيق الصفحة */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.50em;
+        }
+
+        /* تنسيق الأزرار */
+        .toggleButton, .resetButton, .runButton, .saveButton, .copyButton, .uploadButton, .formatButton, .menuButton {
+            margin-left: 10px;
+            border: none;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggleButton {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .toggleButton:hover {
+            background-color: #0056b3;
+        }
+
+        .resetButton {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .resetButton:hover {
+            background-color: #c82333;
+        }
+
+        .runButton {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .runButton:hover {
+            background-color: #218838;
+        }
+
+        .saveButton {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .saveButton:hover {
+            background-color: #138496;
+        }
+
+        .copyButton {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .copyButton:hover {
+            background-color: #e0a800;
+        }
+
+        .uploadButton {
+            background-color: #6f42c1;
+            color: white;
+        }
+
+        .uploadButton:hover {
+            background-color: #5a32a3;
+        }
+
+        .formatButton {
+            background-color: #fd7e14;
+            color: white;
+        }
+
+        .formatButton:hover {
+            background-color: #e67e22;
+        }
+
+        .menuButton {
+            position: absolute;
+            top: 5px;
+            
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        /* تنسيق الشريط الجانبي */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* مخفي بشكل افتراضي */
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar.open {
+            left: 0; /* يظهر عند فتحه */
+        }
+
+        /* تنسيق طبقة التعتيم */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none; /* مخفي بشكل افتراضي */
+            z-index: 998;
+        }
+
+        /* تنسيق أزرار الثيمات */
+        .theme-button {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%; /* دائري */
+            transition: background-color 0.3s, transform 0.3s;
+            width: 40px;
+            height: 40px;
+        }
+
+        .theme-button:hover {
+            transform: scale(1.1); /* تأثير تكبير */
+        }
+.theme-btn{
+    font-size: 1em;
+    width: 100%;
+    border: none; 
+    padding: 0.20em 0.50em;
+    color: white;
+    background-color: #007bff;
+    
+}
+        .box {
+            display: none;
+            margin-bottom: 15px;
+            width: 100%; 
+        }
+
+        .CodeMirror {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: auto;
+            width: 100%; 
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .info-message {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #c6c8ca;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* تنسيق النافذة المنبثقة */
+        .modal {
+            display: none; /* مخفي بشكل افتراضي */
+            position: fixed;
+            z-index: 1001;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .closeModal {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .closeModal:hover {
+            background-color: #c82333;
+        }
+
+        /* تنسيق اختيار حجم الخط */
+        #fontSizeSelect {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+        }
+
+        #fontSizeSelect:hover {
+            border-color: #007bff;
+        }
+.projectButton{
+    font-size: 1em;
+    width: 100%;
+    border: none; 
+    padding: 0.20em 0.50em;
+    color: white;
+    background-color: #007bff;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* مكان ظهور التلميح */
+    left: 50%;
+    margin-left: -60px; /* محاذاة التلميح إلى الوسط */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.project-structure {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .file {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .file span {
+            margin-left: 5px;
+        }
+        .arrow {
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+        .close-btn {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+footer {
+            
+            background-color: rgba(44, 62, 80, 0.6);  /* لون خلفية التذييل */
+            color: black; /* لون نص التذييل */
+            text-align: center;
+            padding: 5px 0;
+            position: relative; /* لتثبيت التذييل */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: white; /* لون الأيقونات */
+            margin: 0 10px; /* تباعد بين الأيقونات */
+            font-size: 1.7em; /* حجم الأيقونات */
+            transition: color 0.3s; /* تأثير عند التمرير */
+        }
+
+        .social-icons a:hover {
+            color: #3498db; /* تغيير لون الأيقونات عند التمرير */
+        }
